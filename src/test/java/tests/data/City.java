@@ -1,9 +1,9 @@
 package tests.data;
 
 public enum City {
-    Спб("Санкт-Петербург"),
-    Мск("Москва"),
-    Нск("Новосибирск");
+    Spb("Санкт-Петербург"),
+    Msk("Москва"),
+    Nsk("Новосибирск");
 
 
 public final String description;

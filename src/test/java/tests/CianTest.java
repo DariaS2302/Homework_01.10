@@ -23,7 +23,6 @@ public class CianTest {
         Configuration.pageLoadStrategy = "eager";
     }
 
-
     @DisplayName("Выдача по ЖК не пустая")
 
     @ValueSource(strings = {
