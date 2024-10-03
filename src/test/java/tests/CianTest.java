@@ -13,7 +13,6 @@ import tests.data.City;
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
-import static tests.data.City.Спб;
 
 public class CianTest {
 
@@ -23,6 +22,7 @@ public class CianTest {
         Configuration.baseUrl = "https://spb.cian.ru";
         Configuration.pageLoadStrategy = "eager";
     }
+
 
     @DisplayName("Выдача по ЖК не пустая")
 
@@ -65,6 +65,6 @@ public class CianTest {
         open("/");
         $("._025a50318d--text--SCFDt").click();
         $("[data-name = 'GeoSwitcherBody']")
-                .shouldHave(text(Спб.description));
+                .shouldHave(text(city.description));
     }
 }

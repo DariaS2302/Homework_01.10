@@ -7,7 +7,6 @@ public enum City {
 
 
 public final String description;
-
 City(String description) {
     this.description = description;
   }
