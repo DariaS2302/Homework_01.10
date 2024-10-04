@@ -24,14 +24,13 @@ public class CianTest {
     }
 
     @DisplayName("Выдача по ЖК не пустая")
-
     @ValueSource(strings = {
             "ЖК «ALPEN»",
             "ЖК «Дом Хороших квартир»"
     })
     @ParameterizedTest(name = "Для поискового запроса {0} должен отдавать не пустой список ЖК")
     @Tag("BLOCKER")
-    void searchResultsShouldNotBeEmpty(String searchQuery) {
+    void searchResultsShouldNotBeEmptyTest(String searchQuery) {
         open("/");
         $("#geo-suggest-input").setValue(searchQuery);
         $("[data-group = 'newbuildings']").click();
@@ -41,11 +40,10 @@ public class CianTest {
     }
 
     @DisplayName("Соответствие ЖК и метро")
-
     @CsvFileSource(resources = "/test_data/searchResultsShouldContainExpectedLocation.csv")
     @ParameterizedTest(name = "Для поискового запроса {0} в первой карточке должна быть локация {1}")
     @Tag("SMOKE")
-    void searchResultsShouldContainExpectedLocation(String searchQuery,String expectedLocation) {
+    void searchResultsShouldContainExpectedLocationTest(String searchQuery,String expectedLocation) {
         open("/");
         $("#geo-suggest-input").setValue(searchQuery);
         $("[data-name = 'SuggestionPopup']").click();
@@ -55,12 +53,11 @@ public class CianTest {
     }
 
     @DisplayName("Отображение городов в списке")
-
     @EnumSource(City.class)
     @ParameterizedTest(name = "Проверка городов {0}")
     @Tag("SMOKE")
 
-    void checkApartmentsWithEnum(City city) {
+    void checkApartmentsWithEnumTest(City city) {
         open("/");
         $("._025a50318d--text--SCFDt").click();
         $("[data-name = 'GeoSwitcherBody']")
